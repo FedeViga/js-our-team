@@ -61,14 +61,26 @@ console.log(teamMembers);
 
 // stampo in console tutte le informazioni per ogni membro del team
 
+// Stampo le stesse informazioni su DOM sottoforma di stringhe
+const mainElement = document.querySelector("main");
+const listElement = document.createElement("ol");
+mainElement.append(listElement);
+
 // ciclo for per iterare tutti gli oggetti dell'array teamMembers
 for (let i = 0; i < teamMembers.length; i++) {
 
     const member = teamMembers[i];
 
+    let membersList = "";
+
     // ciclo for-in per iterare tutte le informazioni di ogni oggetto
     for (let key in member) {
 
         console.log(` ${key}: ${member[key]} `);
+
+        membersList += ` ${key} : ${member[key]} <br>`;
     }
+
+    listElement.innerHTML += `<li class="list-group-item bg-secondary text-white"> ${membersList} </li>`;
+    listElement.classList.add("list-group");
 }
