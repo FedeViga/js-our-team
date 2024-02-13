@@ -59,6 +59,38 @@ const teamMembers = [
 console.log(teamMembers);
 
 
+// ciclo for per creare le cards in cui visualizzare immagine e informazioni dei team members
+for (let i = 0; i < teamMembers.length; i++) {
+
+    // ad ogni iterazione creo una card
+    const rowElement = document.querySelector(".row");
+    const cardElement = document.createElement("div");
+    cardElement.classList.add("col-12", "col-md-6", "col-lg-4", "bg-transparent");
+    rowElement.append(cardElement);
+
+    // aggiungo l'immagine alla card
+    const member = teamMembers[i];
+    const imageElement = new Image();
+    imageElement.classList.add("img-fluid", "mb-2");
+    imageElement.src = "./img/" + member['image'];
+    cardElement.append(imageElement);
+
+    // aggiungo nome
+    const cardTitleElement = document.createElement("h2");
+    cardTitleElement.innerText = member['name'];
+    cardElement.append(cardTitleElement);
+
+    // aggiungo ruolo
+    const cardRoleElement = document.createElement("h5");
+    cardRoleElement.innerText = member['role'];
+    cardElement.append(cardRoleElement)
+
+}
+
+
+
+/*
+
 // stampo in console tutte le informazioni per ogni membro del team
 
 // Stampo le stesse informazioni su DOM sottoforma di stringhe
@@ -80,7 +112,9 @@ for (let i = 0; i < teamMembers.length; i++) {
 
         membersList += ` ${key} : ${member[key]} <br>`;
     }
-
+    
     listElement.innerHTML += `<li class="list-group-item bg-secondary text-white"> ${membersList} </li>`;
-    listElement.classList.add("list-group");
+
 }
+
+*/
