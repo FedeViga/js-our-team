@@ -57,3 +57,18 @@ const teamMembers = [
 ]
 
 console.log(teamMembers);
+
+
+// stampo in console tutte le informazioni per ogni membro del team
+
+// ciclo for per iterare tutti gli oggetti dell'array teamMembers
+for (let i = 0; i < teamMembers.length; i++) {
+
+    const member = teamMembers[i];
+
+    // ciclo for-in per iterare tutte le informazioni di ogni oggetto
+    for (let key in member) {
+
+        console.log(` ${key}: ${member[key]} `);
+    }
+}
